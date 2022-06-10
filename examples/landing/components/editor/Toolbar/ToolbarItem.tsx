@@ -90,10 +90,12 @@ export const ToolbarItem = ({
   return (
     <Grid item xs={full ? 12 : 6}>
       <div className="mb-2">
-        {['text', 'color', 'bg', 'number'].includes(type) ? (
+        {['text', 'color', 'bg', 'number', 'post_resource_path', 'category_resource_path'].includes(type) ? ( 
           <ToolbarTextInput
             {...props}
             type={type}
+            post_resource_path={type == 'post_resource_path'}
+            category_resource_path={type == 'category_resource_path'}
             value={value}
             onChange={(value) => {
               setProp((props: any) => {

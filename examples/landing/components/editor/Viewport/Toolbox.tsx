@@ -1,5 +1,10 @@
 import { Element, useEditor } from '@craftjs/core';
 import { Tooltip } from '@material-ui/core';
+import { BCol } from 'components/selectors/BCol';
+import { BContainer } from 'components/selectors/BContainer';
+import { BRow } from "components/selectors/BRow";
+import { CategoriesCard } from 'components/selectors/CategoriesCard';
+import { PostsCard } from 'components/selectors/PostsCard';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -11,6 +16,10 @@ import { Button } from '../../selectors/Button';
 import { Container } from '../../selectors/Container';
 import { Text } from '../../selectors/Text';
 import { Video } from '../../selectors/Video';
+import { BHeader } from "../../selectors/BHeader";
+import { Home } from "../../selectors/Home";
+import { SinglePost } from "../../selectors/SinglePost";
+import { Div } from "../../selectors/Div";
 
 const ToolboxDiv = styled.div<{ enabled: boolean }>`
   transition: 0.4s cubic-bezier(0.19, 1, 0.22, 1);
@@ -91,6 +100,79 @@ export const Toolbox = () => {
             </Item>
           </Tooltip>
         </div>
+        <div ref={(ref) => create(ref, <CategoriesCard />)}>
+          <Tooltip title="Categories Card" placement="right">
+            <Item className="m-2 pb-2 cursor-pointer block" move>
+              {/* < /> */}
+              <span style={{ fontWeight: "bold" }}>CC</span>
+            </Item>
+          </Tooltip>
+        </div>
+        <div ref={(ref) => create(ref, <PostsCard />)}>
+          <Tooltip title="Posts Card" placement="right">
+            <Item className="m-2 pb-2 cursor-pointer block" move>
+              {/* < /> */}
+              <span style={{ fontWeight: "bold" }}>PC</span>
+            </Item>
+          </Tooltip>
+        </div>
+        <div ref={(ref) => create(ref, <BContainer />)}>
+          <Tooltip title="BContainer" placement="right">
+            <Item className="m-2 pb-2 cursor-pointer block" move>
+              {/* < /> */}
+              <span style={{ fontWeight: "bold" }}>BC</span>
+            </Item>
+          </Tooltip>
+        </div>
+        <div ref={(ref) => create(ref, <BRow />)}>
+          <Tooltip title="BRow" placement="right">
+            <Item className="m-2 pb-2 cursor-pointer block" move>
+              {/* < /> */}
+              <span style={{ fontWeight: "bold" }}>BR</span>
+            </Item>
+          </Tooltip>
+        </div>
+        <div ref={(ref) => create(ref, <BCol />)}>
+          <Tooltip title="BCol" placement="right">
+            <Item className="m-2 pb-2 cursor-pointer block" move>
+              {/* < /> */}
+              <span style={{ fontWeight: "bold" }}>BCol</span>
+            </Item>
+          </Tooltip>
+        </div>
+        <div ref={(ref) => create(ref, <BHeader />)}>
+          <Tooltip title="BHeader" placement="right">
+            <Item className="m-2 pb-2 cursor-pointer block" move>
+              {/* < /> */}
+              <span style={{ fontWeight: "bold" }}>BHeader</span>
+            </Item>
+          </Tooltip>
+        </div>
+        <div ref={(ref) => create(ref, <Div />)}>
+          <Tooltip title="Div" placement="right">
+            <Item className="m-2 pb-2 cursor-pointer block" move>
+              {/* < /> */}
+              <span style={{ fontWeight: "bold" }}>Div</span>
+            </Item>
+          </Tooltip>
+        </div>
+        <div ref={(ref) => create(ref, <Home />)}>
+          <Tooltip title="Home" placement="right">
+            <Item className="m-2 pb-2 cursor-pointer block" move>
+              {/* < /> */}
+              <span style={{ fontWeight: "bold" }}>Home</span>
+            </Item>
+          </Tooltip>
+        </div>
+        <div ref={(ref) => create(ref, <SinglePost />)}>
+          <Tooltip title="SinglePost" placement="right">
+            <Item className="m-2 pb-2 cursor-pointer block" move>
+              {/* < /> */}
+              <span style={{ fontWeight: "bold" }}>SinglePost</span>
+            </Item>
+          </Tooltip>
+        </div>
+
       </div>
     </ToolboxDiv>
   );

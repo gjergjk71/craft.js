@@ -50,6 +50,8 @@ export type ToolbarTextInputProps = {
   type: string;
   onChange?: (value: any) => void;
   value?: any;
+  post_resource_path?: boolean;
+  category_resource_path?: boolean;
 };
 export const ToolbarTextInput = ({
   onChange,
@@ -57,6 +59,8 @@ export const ToolbarTextInput = ({
   prefix,
   label,
   type,
+  post_resource_path,
+  category_resource_path,
   ...props
 }: ToolbarTextInputProps) => {
   const [internalValue, setInternalValue] = useState(value);
@@ -108,7 +112,15 @@ export const ToolbarTextInput = ({
         value={internalValue || ''}
         onKeyDown={(e) => {
           if (e.key === 'Enter') {
-            onChange((e.target as any).value);
+            const value = (e.target as any).value;
+            if (post_resource_path) {
+              const contains_post_id_param = value.indexOf(":post_id/") !== -1
+              if (!contains_post_id_param) return alert("Must contain ':post_id/' param")
+            } else if (category_resource_path) {
+              const contains_category_id_param = value.indexOf(":category_id/") !== -1
+              if (!contains_category_id_param) return alert("Must contain ':category_id/' param") 
+            }
+            onChange(value);
           }
         }}
         onChange={(e) => {

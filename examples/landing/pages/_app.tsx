@@ -1,9 +1,19 @@
 import React from 'react';
 
 import '../styles/app.css';
+import { Router } from "react-router-dom";
+import { createMemoryHistory } from 'history';
+import App from "./blogs/edit/[apikey]/[page].js";
+
+const history = createMemoryHistory();
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+  return (
+    <Router history={history}>
+      {/* <App {...pageProps}/> */}
+      <Component {...pageProps} />
+    </Router>
+  );
 }
 
 // Only uncomment this method if you have blocking data requirements for

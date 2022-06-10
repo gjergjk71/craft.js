@@ -32,6 +32,7 @@
     "@testing-library/react": "^9.4.0",
     "@types/jest": "^24.0.25",
     "@types/react-dom": "^16.8.0",
+    "@types/shallowequal": "^1.1.1",
     "@typescript-eslint/eslint-plugin": "^2.14.0",
     "@typescript-eslint/parser": "^2.14.0",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.1",
@@ -73,8 +74,10 @@
   },
   "dependencies": {
     "@babel/preset-typescript": "^7.7.7",
+    "@craftjs/utils": "^0.2.0-beta.5",
     "all-contributors-cli": "^6.11.2",
-    "rollup-plugin-typescript": "^1.0.1"
+    "rollup-plugin-typescript": "^1.0.1",
+    "shallowequal": "^1.1.0"
   },
   "license": "MIT",
   "repository": {

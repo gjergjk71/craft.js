@@ -25,3 +25,21 @@ body {
 .transition {
   transition: 0.4s cubic-bezier(0.19, 1, 0.22, 1);
 }
+
+.container {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.craftjs-renderer {
+  background-color: white;
+}
+
+.craftjs-renderer > div:first-child > div:first-child {
+  width: 100% !important;
+  background-color: rgb(241 245 249 / var(--tw-bg-opacity)) !important;
+}
+
+/* .sidebar, .header, .toolbox {
+  display: none !important;
+} */

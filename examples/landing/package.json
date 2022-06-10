@@ -3,7 +3,7 @@
   "version": "0.2.0-beta.2",
   "private": true,
   "scripts": {
-    "start": "next dev -p 3001",
+    "start": "next dev -p 3002",
     "build": "next build",
     "export": "next export",
     "clean": "rimraf lib .next out dist"
@@ -15,10 +15,12 @@
     "@material-ui/icons": "^4.5.1",
     "@material-ui/styles": "^4.5.2",
     "autoprefixer": "latest",
+    "bloggrs-api-client": "^0.1.5",
     "classnames": "^2.2.6",
     "cssnano": "^4.1.10",
     "debounce": "^1.2.0",
     "lzutf8": "^0.5.5",
+    "moment": "^2.29.1",
     "next": "^10.2.0",
     "next-seo": "^4.24.0",
     "postcss": "latest",

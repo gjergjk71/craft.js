@@ -1,8 +1,10 @@
 import { useEditor } from '@craftjs/core';
 import { Tooltip } from '@material-ui/core';
 import cx from 'classnames';
+import bloggrs from 'lib/bloggrs-sdk';
 import React from 'react';
 import styled from 'styled-components';
+import { useRouter } from 'next/router'
 
 import Checkmark from '../../../public/icons/check.svg';
 import Customize from '../../../public/icons/customize.svg';
@@ -52,12 +54,14 @@ const Item = styled.a<{ disabled?: boolean }>`
 `;
 
 export const Header = () => {
-  const { enabled, canUndo, canRedo, actions } = useEditor((state, query) => ({
+  const { enabled, canUndo, canRedo, actions, query } = useEditor((state, query) => ({
     enabled: state.options.enabled,
     canUndo: query.history.canUndo(),
     canRedo: query.history.canRedo(),
   }));
-
+  const router = useRouter();
+  const { apikey, page } = router.query;
+  console.log({ router })
   return (
     <HeaderDiv className="header text-white transition w-full">
       <div className="items-center flex w-full px-4 justify-end">
@@ -85,6 +89,17 @@ export const Header = () => {
               },
             ])}
             onClick={() => {
+              console.log(query.serialize())
+              fetch(bloggrs.serverUrl + `/blogs/${apikey}/update_page_state/${page}`, {
+                method: "PATCH",
+                headers: {
+                  "Authorization": "Bearer " + localStorage.getItem("bloggrs::token"),
+                  "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                  craftjs_json_state: query.serialize()
+                })
+              })
               actions.setOptions((options) => (options.enabled = !enabled));
             }}
           >

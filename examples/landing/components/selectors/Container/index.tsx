@@ -3,6 +3,7 @@ import React from 'react';
 import { ContainerSettings } from './ContainerSettings';
 
 import { Resizer } from '../Resizer';
+import { Element } from '@craftjs/core';
 
 export type ContainerProps = {
   background: Record<'r' | 'g' | 'b' | 'a', number>;
@@ -35,7 +36,7 @@ const defaultProps = {
   color: { r: 0, g: 0, b: 0, a: 1 },
   shadow: 0,
   radius: 0,
-  width: '100%',
+  width: '100% !important',
   height: 'auto',
 };
 
@@ -75,6 +76,7 @@ export const Container = (props: Partial<ContainerProps>) => {
         borderRadius: `${radius}px`,
         flex: fillSpace === 'yes' ? 1 : 'unset',
       }}
+      // className="container"
     >
       {children}
     </Resizer>
